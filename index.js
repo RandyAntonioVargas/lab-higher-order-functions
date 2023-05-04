@@ -14,8 +14,12 @@
  */
 function find(array, callback) {
   for (let element of array) {
-    // Write your code here.
+  let foundElm = callback (element)
+  if (foundElm === true){
+    return element
   }
+  }
+   return undefined
 }
 
 /**
@@ -35,8 +39,8 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
-  }
+    if ( callback(element))
+  result.push (element);}
   return result;
 }
 
@@ -54,12 +58,14 @@ function filter(array, callback) {
  *  map([], (element) => element < 0);
  *  //> []
  */
+// the map() is iterating thorugh through the element, to retrun a value
+//the vaule is being pushed back into the main function
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    result.push (callback(element))
   }
-  return result;
+  return result; // return fina; results after its being interated and pushed
 }
 
 /**
@@ -77,7 +83,7 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+  callback (array[i],i,array)
   }
 }
 
